@@ -1,0 +1,162 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Tarjeta para Laura</title>
+	<style>
+	body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('dungeon.jpg'); 
+    background-size: cover;
+    background-position: center;
+	overflow: hidden; 
+}
+
+.tarjeta {
+    background-color: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%; 
+    max-width: 600px; 
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+    overflow-y: auto; /* Esta opcion es pal scroll si el contenido es muy largo */
+    max-height: 80vh; 
+}
+
+h1 {
+    text-align: center;
+    color: #D1183D;
+}
+
+p {
+    line-height: 1.5;
+    margin: 10px 0;
+    font-size: 16px; 
+}
+
+.btn-cerrar {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 15px;
+    background-color: #D1183D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-cerrar:hover {
+    background-color: #F15573;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+	
+.confeti {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 9999;
+}
+	
+	</style>
+</head>
+<body>
+    <div class="tarjeta">
+        <h1>¡Feliz Cumpleaños Laura!</h1>
+        <p>En este día tan especial quiero hablarte sobre...</p>
+        <p><strong>19 COSAS QUE ME AGRADAN DE TI:</strong></p>
+<p>* Cuando me hablas de algo que pasó en tu dia (en especial en audio)</p><p></p>
+<p>* Cuando hablo de algo random y me preguntas más del tema</p>
+<p>* Lo feliz que luces al bailar algo movido</p>
+<p>* Tu humor al momento de estar feliz</p>
+<p>* La forma en la que conectas con los demás</p>
+<p>* El hecho de que no te conformas fácilmente con algo</p>
+<p>* El empeño que le pones a tus comidas (basandome en las que he probado)</p>
+<p>* Lo emocionada que luces al momento de ver la naturaleza</p>
+<p>* Que me invites a hacer algo, así sea simplemente a existir</p>
+<p>* El esfuerzo que pones a tus uñas</p>
+<p>* Los elogios que me das cuando los necesito</p>
+<p>* Que aunque sea muy exagerado al preocuparme por ti, no lo tomas como algo molesto</p>
+<p>* El hecho de que me cuentas tus preocupaciones, demostrandome que confias en mi, pese a que suelo ser inútil ayudándote</p>
+<p>* El como quieres compartir conmigo las cosas que me gustan</p>
+<p>* Que me cuentes tu comida</p>
+<p>* Tu amor por los animales</p>
+<p>* Lo ordenada que eres </p>
+<p>* Tus delineados (aunque nunca lo diga)</p>
+<p>* Tus insultos sarcásticos</p>
+<p><strong> PLUS: </strong></p>
+El que me permitas seguir en tu vida a pesar de que no sea la mejor persona que puedas conocer, tu paciencia conmigo y tu apoyo me han hecho saber que no son siempre necesarias las palabras para demostrar afecto, que a pesar de las adversidades de tu vida diaria y ocupaciones siempre tratas de mantenerme en tus dias, y que me consideres tu mejor amigo aunque no pueda ayudarte o apoyarte mucho, me hacen muy feliz, por lo que espero seguir con ese titulo mientras pasan los años, y seguir haciendo aunque sea cosas minúsculas para que te llegue el mensaje que todos los dias deseo darte de cualquier forma:</p>
+<p>"Te quiero y aprecio mucho mejor amiga"</p>
+        <p>Con cariño,</p>
+        <p>Camilo</p>
+        <button class="btn-cerrar">CONFETI :D</button>
+    </div>
+	
+	<script>
+    function crearConfeti() {
+        const colores = ['#FF0B00', '#FFB800', '#00B200', '#0072FF', '#E100B0'];
+
+        const interval = setInterval(() => {
+            const pieza = document.createElement('div');
+            pieza.classList.add('pieza-confeti');
+            pieza.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+            pieza.style.left = Math.random() * 100 + 'vw';
+            pieza.style.top = '0'; // Posicionar desde la parte superior
+            pieza.style.animationDuration = Math.random() * 2 + 1 + 's'; // Duración aleatoria
+            document.body.appendChild(pieza);
+
+            // Eliminar la pieza de confeti después de que cae
+            setTimeout(() => {
+                pieza.remove();
+            }, 3000); // Ajusta este tiempo si es necesario
+
+        }, 100); // Intervalo de 300ms para crear nuevas piezas
+
+        // Detener el confeti después de un tiempo (opcional)
+        setTimeout(() => {
+            clearInterval(interval);
+        }, 10000); // Detener después de 10 segundos, ajusta si deseas
+    }
+
+    document.querySelector('.btn-cerrar').addEventListener('click', crearConfeti);
+</script>
+
+<style>
+    .pieza-confeti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        opacity: 0.8;
+        animation-name: caer;
+        animation-timing-function: ease-in;
+    }
+
+    @keyframes caer {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(100vh);
+        }
+    }
+</style>
+	
+</body>
+</html>
